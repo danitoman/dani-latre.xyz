@@ -30,15 +30,28 @@ document.addEventListener('DOMContentLoaded', initWidget);
 
 // Array con la información de tus medios (imágenes y videos)
 const mediaItems = [
-    { src: "img/PXL_20250126_131916465.MP.jpg", x: 1000, y: 100, type: "image" },
-    { src: "img/PXL_20250303_155102619.RAW-01.COVER.jpg",  x: 500, y: 1000, type: "image" },
-    { src: "img/PXL_20250303_183943567.RAW-01.COVER.jpg", x: 100, y: 400, type: "image" },
-    {src: "img/pruebas_labo_daniel_latre_00_2.jpg", x: 1200, y: 300, type: "image"},
+    { src: "img_optimizada/PXL_20250126_131916465.MP_resultado.jpg", x: 1000, y: 1900, type: "image" },
+    { src: "img_optimizada/PXL_20250303_155102619.RAW-01.COVER_resultado.jpg",  x: 500, y: 1000, type: "image" },
+    { src: "img_optimizada/PXL_20250303_183943567.RAW-01.COVER_resultado.jpg", x: 400, y: 400, type: "image" },
+    {src: "img_optimizada/PXL_20250114_171008335.NIGHT_resultado.jpg", x: 1010, y: 250, type: "image"},
+    {src: "img_optimizada/local humo2 con referencia_resultado.jpg", x: 100, y: 3000, type: "image"},
+    {src: "img_optimizada/P8090003_resultado.jpg", x: 1000, y: 9000, type: "image"},
+    {src: "img_optimizada/editadas camarasony_00_7_resultado.jpg", x: 1000, y: 1900, type: "image"},
+    {src: "img_optimizada/editadas portfolio_00_5_resultado.jpg", x: 280, y: 1880, type: "image"},
+    {src: "img_optimizada/pruebas_labo_daniel_latre_00_6_resultado.jpg", x: 900, y: 1800, type: "image"},
+    {src: "img_optimizada/PXL_20250303_184144172.NIGHT.RAW-01.COVER_resultado.jpg", x: 100, y: 2300, type: "image"},
+    {src: "img_optimizada/PXL_20250211_171848110.RAW-01.COVER_resultado.jpg", x: 600, y: 2600, type: "image"},
+    {src: "img_optimizada/PXL_20250211_175218562.RAW-01.COVER_resultado.jpg", x: 900, y: 2600, type: "image"},
+    {src: "img_optimizada/PXL_20250123_181908097_resultado.jpg", x: 900, y: 3500, type: "image"},
 
-     {src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 900, y: 400, type: "video"},
+
+
+
+     {src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 1090, y: 600, type: "video"},
      {src: "https://dani-latre.xyz/media/humo-forma-suelo.mp4", x: 100, y: 50, type: "video"},
-     {src: "https://dani-latre.xyz/media/cubo_agua.mp4", x: 150, y: 600, type: "video"},
+     {src: "https://dani-latre.xyz/media/cubo_agua.mp4", x: 150, y: 700, type: "video"},
      {src: "https://dani-latre.xyz/media/humo_garaje.mp4", x: 500, y: 1500, type: "video"},
+     {src: "https://dani-latre.xyz/media/proyeccion_local.mp4", x: 1000, y: 2400, type: "video"},
 
    
 
@@ -46,6 +59,16 @@ const mediaItems = [
     
     // Agrega más elementos según necesites
 ];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    scaleGalleryToScreen();
+    reloadGallery();
+});
+
+window.addEventListener('resize', () => {
+    scaleGalleryToScreen();
+});
 
 // Función para hacer arrastrables los elementos
 function makeDraggable(element, space) {
@@ -113,10 +136,18 @@ function setupZoom() {
     const imageDescription = document.getElementById("imageDescription");
     const closeBtn = document.querySelector(".close");
     const scrollCapture = document.createElement('div');
+    
+
+      // Evento para cerrar al hacer click fuera del contenido
+    modal.addEventListener('click', function(e) {
+        // Solo cerrar si el click fue directamente en el modal (fondo)
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
         
     // Asegurarnos de que el modal esté oculto al inicio
-    modal.style.display = "none";
-    
+    modal.style.display = "none"; 
     scrollCapture.style.position = 'fixed';
     scrollCapture.style.top = '0';
     scrollCapture.style.left = '0';
@@ -124,6 +155,7 @@ function setupZoom() {
     scrollCapture.style.height = '100%';
     scrollCapture.style.zIndex = '999';
     scrollCapture.style.pointerEvents = 'none';
+    
     
     document.body.appendChild(scrollCapture);
     
@@ -173,7 +205,7 @@ function setupZoom() {
     });
     
     // Función para cerrar el modal
-    function closeModal() {
+       function closeModal() {
         modal.style.display = "none";
         const videos = zoomedMediaContainer.querySelectorAll('video');
         videos.forEach(video => video.pause());
@@ -205,6 +237,9 @@ function initGallery() {
         container.dataset.description = item.description || '';
         
         let mediaElement;
+          if (window.innerWidth <= 768) {
+    return;
+  }
 
 if (item.type === "video") {
   mediaElement = document.createElement('video');
@@ -213,14 +248,7 @@ if (item.type === "video") {
   mediaElement.muted = true;
   mediaElement.autoplay = true;
   mediaElement.controls = false;
-} else if (item.type === "youtube") {
-  mediaElement = document.createElement('iframe');
-  mediaElement.src = `https://www.youtube.com/embed/${item.src}?autoplay=1&mute=1&loop=1&playlist=${item.src}&controls=0&modestbranding=1`;
-  mediaElement.frameBorder = "0";
-  mediaElement.allow = "autoplay; encrypted-media";
-  mediaElement.allowFullscreen = true;
-  mediaElement.width = "300";
-  mediaElement.height = "220";
+
 } else {
   mediaElement = document.createElement('img');
   mediaElement.src = item.src;
