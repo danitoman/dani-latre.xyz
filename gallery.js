@@ -10,6 +10,15 @@ function updateClock() {
   document.getElementById('current-time').textContent = timeStr;
 }
 
+function initWidget() {
+  updateClock();
+  setInterval(updateClock, 1000);
+  getWeatherAndTimezone();
+}
+
+document.addEventListener('DOMContentLoaded', initWidget);
+
+
 
 
 // Inicializar todo
@@ -23,7 +32,15 @@ function initWidget() {
 }
 
 // Iniciar cuando la página cargue
-document.addEventListener('DOMContentLoaded', initWidget);
+document.addEventListener("DOMContentLoaded", () => {
+  const externalCloseBtn = document.getElementById("modalClose");
+  if (externalCloseBtn) {
+    externalCloseBtn.style.display = "none";
+    externalCloseBtn.style.opacity = "0";
+    externalCloseBtn.style.pointerEvents = "none";
+  }
+});
+
 
 
 
@@ -135,18 +152,16 @@ function setupZoom() {
   const imageTitle = document.getElementById("imageTitle");
   const imageDescription = document.getElementById("imageDescription");
   const closeBtn = document.querySelector(".close");
+  const externalCloseBtn = document.getElementById("modalClose");
 
-  // Ocultar modal al inicio
+
   modal.style.display = "none";
+  externalCloseBtn.style.display = "block";
 
-  // Cerrar modal al hacer click fuera del contenido
-  modal.addEventListener('click', function (e) {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
 
-  // Doble clic en imágenes o videos
+  
+
+  // Escucha doble clic en cualquier imagen o video
   document.querySelectorAll(".image-container img, .image-container video").forEach(media => {
     media.addEventListener("dblclick", function (e) {
       e.preventDefault();
@@ -157,7 +172,7 @@ function setupZoom() {
       const description = container.dataset.description || '';
       const isVideo = this.tagName === "VIDEO";
 
-      zoomedMediaContainer.innerHTML = '';
+      zoomedMediaContainer.innerHTML = ''; // Limpiar contenido anterior
 
       let zoomedMedia;
       if (isVideo) {
@@ -176,27 +191,41 @@ function setupZoom() {
       imageTitle.textContent = '';
       imageDescription.textContent = description;
 
-      modal.style.display = "block";
+    modal.style.display = "block";
+    externalCloseBtn.style.display = "flex"; // o "block" según tu diseño
+    externalCloseBtn.style.opacity = "1";
+    externalCloseBtn.style.pointerEvents = "auto";  
 
-      // Opcional: animación visual de clic
-      this.classList.add("click-animation");
-      setTimeout(() => this.classList.remove("click-animation"), 300);
     });
   });
 
-  // Cerrar con Escape
-  document.addEventListener('keydown', function (e) {
+ 
+
+  // Cierra con la cruz
+  closeBtn.addEventListener("click", closeModal);
+  externalCloseBtn.addEventListener("click", closeModal);
+
+
+  // Cierra con Escape
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && modal.style.display === "block") {
       closeModal();
+      modal.style.display = "none";
+externalCloseBtn.style.display = "none";
+externalCloseBtn.style.opacity = "0";
+externalCloseBtn.style.pointerEvents = "none";
+
     }
   });
 
   function closeModal() {
     modal.style.display = "none";
-    const videos = zoomedMediaContainer.querySelectorAll('video');
+    externalCloseBtn.style.display = "none";
+    const videos = zoomedMediaContainer.querySelectorAll("video");
     videos.forEach(video => video.pause());
   }
 }
+
 
 
 

@@ -6,12 +6,12 @@ body {
     background-color: #f0f0f0;
     overflow: auto;
     font-family: Arial, sans-serif;
-    body {
-  overflow-x: hidden;
-  overflow-y: auto;
+    
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-}
+
 /*fuentes*/
  h1, h2, h3, h4, p{
         
@@ -54,16 +54,7 @@ body {
       }
       
     
- .navegador{
-      display:inline-flex;
-      justify-content: center;
-  
-      top: 64px;
-      right: 50px;
-      font-size: larger;
-      text-align: center;
-    
-    }
+
 
     #weather-clock-widget {
     position: fixed;
@@ -138,14 +129,23 @@ body {
 .modal {
   display: none;
   position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal-background {
+  position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.055);
-  z-index: 1000;
-  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.1); /* opcional: un leve fondo oscuro */
+  pointer-events: all;
   cursor: pointer;
 }
 
-/* Contenido centrado dentro del modal */
 .modal-content {
   width: 100%;
   height: 100%;
@@ -155,13 +155,12 @@ body {
   pointer-events: none;
 }
 
-/* Contenedor de imagen o video ampliado */
 #zoomedMediaContainer {
   max-width: 90vw;
   max-height: 90vh;
   pointer-events: auto;
-  margin: auto;
 }
+
 
 /* Imagen o video dentro del modal */
 #zoomedMediaContainer img,
@@ -175,15 +174,17 @@ body {
 }
 
 /* Botón de cierre */
-.close {
+#modalClose {
   position: fixed;
   top: 20px;
   right: 30px;
-  color: white;
-  font-size: 40px;
-  font-weight: 100;
-  pointer-events: none;
-  z-index: 1001;
+  font-size: 5vh;
+  font-weight: extra-light;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.644);
+  z-index: 9999; /* muy por encima de todo */
+  pointer-events: auto;
+  display:none; /* oculto por defecto */
 }
 
 /* Información adicional */
@@ -200,7 +201,7 @@ body {
 
 /* Animación de clic */
 .click-animation {
-    animation: clickEffect 0.3s ease;
+    animation: clickEffect 0.2s ease;
 }
 
 @keyframes clickEffect {
@@ -264,7 +265,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   #imageSpace {
     display: flex;
     flex-direction: column;
@@ -292,7 +293,7 @@ body {
     display: block;
   }
 }
-@media (min-width: 451px) and (max-width: 768px) {
+@media (min-width: 451px) and (max-width: 1000px) {
   .image-container img,
   .image-container video {
     width: 100vw;
@@ -300,7 +301,7 @@ body {
     object-fit: cover;
   }
 }
-@media (min-width: 451px) and (max-width: 768px) {
+@media (min-width: 451px) and (max-width: 1000px) {
   .image-container img,
   .image-container video {
     width: 100vw;
