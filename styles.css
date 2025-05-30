@@ -178,10 +178,12 @@ body {
   position: fixed;
   top: 20px;
   right: 30px;
-  font-size: 5vh;
+  padding: 32px;
+  font-size: 3vh;
   font-weight: extra-light;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.644);
+  color: rgb(237, 237, 237);
+  mix-blend-mode: difference;
   z-index: 9999; /* muy por encima de todo */
   pointer-events: auto;
   display:none; /* oculto por defecto */

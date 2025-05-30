@@ -46,29 +46,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Array con la información de tus medios (imágenes y videos)
+
+
 const mediaItems = [
     { src: "img_optimizada/PXL_20250126_131916465.MP_resultado.jpg", x: 1000, y: 1900, type: "image" },
     { src: "img_optimizada/PXL_20250303_155102619.RAW-01.COVER_resultado.jpg",  x: 500, y: 1000, type: "image" },
     { src: "img_optimizada/PXL_20250303_183943567.RAW-01.COVER_resultado.jpg", x: 400, y: 400, type: "image" },
     {src: "img_optimizada/PXL_20250114_171008335.NIGHT_resultado.jpg", x: 1010, y: 250, type: "image"},
-    {src: "img_optimizada/local humo2 con referencia_resultado.jpg", x: 100, y: 3000, type: "image"},
+    {src: "img_optimizada/local humo2 con referencia_resultado.jpg", x: 100, y: 4500, type: "image"},
     {src: "img_optimizada/P8090003_resultado.jpg", x: 1000, y: 9000, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_7_resultado.jpg", x: 1000, y: 1900, type: "image"},
     {src: "img_optimizada/editadas portfolio_00_5_resultado.jpg", x: 280, y: 1880, type: "image"},
     {src: "img_optimizada/pruebas_labo_daniel_latre_00_6_resultado.jpg", x: 900, y: 1800, type: "image"},
     {src: "img_optimizada/PXL_20250303_184144172.NIGHT.RAW-01.COVER_resultado.jpg", x: 100, y: 2300, type: "image"},
-    {src: "img_optimizada/PXL_20250211_171848110.RAW-01.COVER_resultado.jpg", x: 600, y: 2600, type: "image"},
-    {src: "img_optimizada/PXL_20250211_175218562.RAW-01.COVER_resultado.jpg", x: 900, y: 2600, type: "image"},
+    {src: "img_optimizada/PXL_20250211_171848110.RAW-01.COVER_resultado.jpg", x: 600, y: 3000, type: "image"},
+    {src: "img_optimizada/PXL_20250211_175218562.RAW-01.COVER_resultado.jpg", x: 900, y: 3000, type: "image"},
     {src: "img_optimizada/PXL_20250123_181908097_resultado.jpg", x: 900, y: 3500, type: "image"},
+    {src: "img_optimizada/camion esquema_resultado.jpg", x: 1500, y: 5500, type: "image"},
+    {src: "img_optimizada/editadas camarasony_00_24_resultado.jpg", x: 0, y: 4000, type: "image"},
+    {src: "img_optimizada/PXL_20250303_174419629.RAW-01.COVER_resultado.jpg", x: 200, y: 5800, type: "image"},
+    {src: "img_optimizada/IMG-20250113-WA0029_resultado.jpg", x: 10, y: 5300, type: "image"},
+    {src: "img_optimizada/d4948c53_resultado.jpg", x: 1000, y: 6600, type: "image"},
+    {src: "img_optimizada/editadas camarasony_00_20_resultado.jpg", x: 1000, y: 6900, type: "image"},
+    {src: "img_optimizada/editadas camarasony_00_21_resultado.jpg", x: 0, y: 7200, type: "image"},
 
 
 
 
-     {src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 1090, y: 600, type: "video"},
-     {src: "https://dani-latre.xyz/media/humo-forma-suelo.mp4", x: 100, y: 50, type: "video"},
+     {src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 190, y: 8000, type: "video"},
+     {src: "https://dani-latre.xyz/media/humo-forma-suelo.mp4", x: 30, y: 60, type: "video"},
      {src: "https://dani-latre.xyz/media/cubo_agua.mp4", x: 150, y: 700, type: "video"},
      {src: "https://dani-latre.xyz/media/humo_garaje.mp4", x: 500, y: 1500, type: "video"},
      {src: "https://dani-latre.xyz/media/proyeccion_local.mp4", x: 1000, y: 2400, type: "video"},
+      {src: "https://dani-latre.xyz/media/Plastico-Aire-Sala-Luces.mp4", x: 1000, y: 4500, type: "video"},
 
    
 
@@ -76,6 +86,7 @@ const mediaItems = [
     
     // Agrega más elementos según necesites
 ];
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -232,6 +243,7 @@ externalCloseBtn.style.pointerEvents = "none";
 // Función de carga principal
 function initGallery() {
     const imageSpace = document.getElementById("imageSpace");
+    
 
     function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -272,14 +284,9 @@ function initGallery() {
       mediaElement.muted = true;
       mediaElement.autoplay = true;
       mediaElement.controls = false;
-    } else if (item.type === "youtube") {
-      mediaElement = document.createElement('iframe');
-      mediaElement.src = `https://www.youtube.com/embed/${item.src}?autoplay=1&mute=1&loop=1&playlist=${item.src}&controls=0&modestbranding=1`;
-      mediaElement.frameBorder = "0";
-      mediaElement.allow = "autoplay; encrypted-media";
-      mediaElement.allowFullscreen = true;
-      mediaElement.width = "300";
-      mediaElement.height = "220";
+   
+
+
     } else {
       mediaElement = document.createElement('img');
       mediaElement.src = item.src;
