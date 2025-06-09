@@ -73,12 +73,14 @@ const mediaItems = [
 
 
 
-     {src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 190, y: 8000, type: "video"},
+     //{src: "https://dani-latre.xyz/media/ruta-3d-modelo.mp4", x: 190, y: 8000, type: "video"},
      {src: "https://dani-latre.xyz/media/humo-forma-suelo.mp4", x: 30, y: 60, type: "video"},
      {src: "https://dani-latre.xyz/media/cubo_agua.mp4", x: 150, y: 700, type: "video"},
      {src: "https://dani-latre.xyz/media/humo_garaje.mp4", x: 500, y: 1500, type: "video"},
      {src: "https://dani-latre.xyz/media/proyeccion_local.mp4", x: 1000, y: 2400, type: "video"},
-      {src: "https://dani-latre.xyz/media/Plastico-Aire-Sala-Luces.mp4", x: 1000, y: 4500, type: "video"},
+     {src: "https://dani-latre.xyz/media/Plastico-Aire-Sala-Luces.mp4", x: 1000, y: 4500, type: "video"},
+     {src: "https://dani-latre.xyz/media/Ruta%20Modelo.mp4", x: 1000, y: 5000, type: "video"},
+
 
    
 
