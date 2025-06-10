@@ -69,6 +69,9 @@ const mediaItems = [
     {src: "img_optimizada/d4948c53_resultado.jpg", x: 1000, y: 6600, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_20_resultado.jpg", x: 1000, y: 6900, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_21_resultado.jpg", x: 0, y: 7200, type: "image"},
+   
+    
+
 
 
 
@@ -155,6 +158,16 @@ function makeDraggable(element, space) {
         
         // Restaurar z-index
         element.style.zIndex = 1;
+
+        //  GUARDAR POSICIÓN EN LOCALSTORAGE
+        const id = element.dataset.id;
+        if (id) {
+            const x = element.offsetLeft;
+            const y = element.offsetTop;
+            const savedPositions = JSON.parse(localStorage.getItem("mediaPositions") || "{}");
+            savedPositions[id] = { x, y };
+            localStorage.setItem("mediaPositions", JSON.stringify(savedPositions));
+    }
     }
 }
 
@@ -265,15 +278,22 @@ function initGallery() {
   if (isMobile) {
     shuffleArray(itemsToRender);
   }
-
-  itemsToRender.forEach(item => {
+itemsToRender.forEach((item, index) => {
     const container = document.createElement('div');
     container.className = 'image-container';
+    const id = `media-${index}`;
+    container.dataset.id = id;
 
-    if (!isMobile) {
-      container.style.left = item.x + 'px';
-      container.style.top = item.y + 'px';
+    const savedPositions = JSON.parse(localStorage.getItem("mediaPositions") || "{}");
+
+    if (!isMobile && savedPositions[id]) {
+        container.style.left = savedPositions[id].x + 'px';
+        container.style.top = savedPositions[id].y + 'px';
+    } else if (!isMobile) {
+        container.style.left = item.x + 'px';
+        container.style.top = item.y + 'px';
     }
+
 
     container.dataset.description = item.description || '';
 

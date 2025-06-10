@@ -176,10 +176,10 @@ body {
 /* Botón de cierre */
 #modalClose {
   position: fixed;
-  top: 20px;
-  right: 30px;
+  top: 5px;
+  right: 5px;
   padding: 32px;
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: extra-light;
   cursor: pointer;
   color: rgb(237, 237, 237);
