@@ -340,3 +340,4 @@ itemsToRender.forEach((item, index) => {
 }
 // Inicializar la galería cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initGallery);
+
