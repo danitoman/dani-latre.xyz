@@ -69,6 +69,7 @@ const mediaItems = [
     {src: "img_optimizada/d4948c53_resultado.jpg", x: 1000, y: 6600, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_20_resultado.jpg", x: 1000, y: 6900, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_21_resultado.jpg", x: 0, y: 7200, type: "image"},
+    {src: "img_optimizada/Imagen de WhatsApp 2025-06-08 a las 19.01.20_739d60b1_resultado.jpg", x: 1000, y: 7500, type: "image"},
    
     
 
