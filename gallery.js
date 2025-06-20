@@ -238,9 +238,9 @@ function setupZoom() {
     if (e.key === "Escape" && modal.style.display === "block") {
       closeModal();
       modal.style.display = "none";
-externalCloseBtn.style.display = "none";
-externalCloseBtn.style.opacity = "0";
-externalCloseBtn.style.pointerEvents = "none";
+      externalCloseBtn.style.display = "none";
+      externalCloseBtn.style.opacity = "0";
+      externalCloseBtn.style.pointerEvents = "none";
 
     }
   });
