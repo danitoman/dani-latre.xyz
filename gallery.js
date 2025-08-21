@@ -69,7 +69,11 @@ const mediaItems = [
     {src: "img_optimizada/d4948c53_resultado.jpg", x: 1000, y: 6600, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_20_resultado.jpg", x: 1000, y: 6900, type: "image"},
     {src: "img_optimizada/editadas camarasony_00_21_resultado.jpg", x: 0, y: 7200, type: "image"},
-    {src: "img_optimizada/Imagen de WhatsApp 2025-06-08 a las 19.01.20_739d60b1_resultado.jpg", x: 1000, y: 7500, type: "image"},
+    {src: "img_optimizada/PXL_20250729_153851506-min.jpg", x: 1000, y: 7500, type: "image"},
+    {src: "img_optimizada/aula_cuenca-min.jpg", x: 1000, y: 7500, type: "image"},
+    {src: "img_optimizada/IMG_20250609_043629-min.jpg", x: 4000, y: 8800, type: "image"},
+    {src: "img_optimizada/PXL_20250226_171318569.RAW-01.COVER-min.jpg", x: 9000, y: 800, type: "image"},
+   
    
     
 
@@ -84,6 +88,7 @@ const mediaItems = [
      {src: "https://dani-latre.xyz/media/proyeccion_local.mp4", x: 1000, y: 2400, type: "video"},
      {src: "https://dani-latre.xyz/media/Plastico-Aire-Sala-Luces.mp4", x: 1000, y: 4500, type: "video"},
      {src: "https://dani-latre.xyz/media/Ruta%20Modelo.mp4", x: 1000, y: 5000, type: "video"},
+     {src: "https://dani-latre.xyz/media/Fuegos%20.mp4", x: 1000, y: 4500, type: "video"},
 
 
    
@@ -91,6 +96,7 @@ const mediaItems = [
 
     
     // Agrega más elementos según necesites
+    
 ];
 
 

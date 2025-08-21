@@ -312,3 +312,23 @@ body {
   }
 }
 
+/*pagina de textos*/
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: rgb(28, 28, 28);
+    margin: 0.5rem 0;
+}
+.textos {
+    padding: 1rem;
+  
+    text-align: justify;
+    max-width: 800px;
+}
+#separador {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(28, 28, 28);
+    margin: 1rem ;
+}
