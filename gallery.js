@@ -73,6 +73,18 @@ const mediaItems = [
     {src: "img_optimizada/aula_cuenca-min.jpg", x: 1000, y: 7500, type: "image"},
     {src: "img_optimizada/IMG_20250609_043629-min.jpg", x: 4000, y: 8800, type: "image"},
     {src: "img_optimizada/PXL_20250226_171318569.RAW-01.COVER-min.jpg", x: 9000, y: 800, type: "image"},
+    {src: "img_optimizada/PXL_20250830_185121345.webp", x: 7000, y: 800, type: "image"},
+    {src: "img_optimizada/PXL_20250831_103101053.webp", x: 3000, y: 900, type: "image"},
+    {src: "img_optimizada/PXL_20250831_103354825.webp", x: 900, y: 800, type: "image"},
+    {src: "img_optimizada/PXL_20250831_115327149.webp", x: 900, y: 8000, type: "image"},
+    {src: "img_optimizada/PXL_20250831_193407976.webp", x: 200, y: 7000, type: "image"},
+    {src: "img_optimizada/PXL_20250903_222242520.webp", x: 100, y: 3000, type: "image"},
+    {src: "img_optimizada/PXL_20250905_104807436.webp", x: 400, y: 7000, type: "image"},
+    {src: "img_optimizada/PXL_20250903_222442335.webp", x: 600, y: 4000, type: "image"},
+    {src: "img_optimizada/PXL_20250913_122707031.webp", x: 800, y: 2000, type: "image"},
+    {src: "img_optimizada/PXL_20250909_211818029.webp", x: 2000, y: 15000, type: "image"},
+
+   
    
    
     
