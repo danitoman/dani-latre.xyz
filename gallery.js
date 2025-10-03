@@ -83,6 +83,7 @@ const mediaItems = [
     {src: "img_optimizada/PXL_20250903_222442335.webp", x: 600, y: 4000, type: "image"},
     {src: "img_optimizada/PXL_20250913_122707031.webp", x: 800, y: 2000, type: "image"},
     {src: "img_optimizada/PXL_20250909_211818029.webp", x: 2000, y: 15000, type: "image"},
+    {src: "https://res.cloudinary.com/dxeygnscr/image/upload/v1759456230/galeria/img2.jpg", x: 2000, y: 15000, type: "image"},
 
    
    
